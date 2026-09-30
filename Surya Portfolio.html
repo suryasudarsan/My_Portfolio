@@ -1,0 +1,949 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Surya S | Cybersecurity Student portfolio" />
+  <title>Surya | Cybersecurity Student & Fast Learner</title>
+  <style>
+    :root {
+      --bg: #040b14;
+      --bg-2: #0b1626;
+      --panel: rgba(15, 23, 42, 0.8);
+      --panel-strong: #101c2b;
+      --line: rgba(88, 153, 255, 0.25);
+      --text: #edf6ff;
+      --muted: #9bb5c9;
+      --cyan: #00f0ff;
+      --purple: #7c3aed;
+      --green: #7ef9c6;
+      --orange: #ffb454;
+      --shadow: 0 0 18px rgba(0, 240, 255, 0.25);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(0,240,255,0.12), transparent 22%),
+        radial-gradient(circle at bottom right, rgba(124,58,237,0.12), transparent 22%),
+        linear-gradient(135deg, var(--bg), var(--bg-2));
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(4, 11, 20, 0.75);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+    }
+
+    .brand {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.25rem;
+      color: var(--cyan);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus {
+      color: var(--cyan);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.4rem;
+      border: 1px solid var(--cyan);
+      border-radius: 999px;
+      color: var(--cyan);
+      box-shadow: var(--shadow);
+      font-weight: 700;
+      transition: 0.3s ease;
+    }
+
+    .nav-cta:hover,
+    .nav-cta:focus {
+      background: var(--cyan);
+      color: #041018;
+    }
+
+    .hero {
+      padding: 5.5rem 0 4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--cyan);
+      font-size: 0.82rem;
+      letter-spacing: 0.28rem;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 0.95;
+      letter-spacing: -0.08em;
+      margin-bottom: 1.2rem;
+    }
+
+    h1 .highlight {
+      color: var(--cyan);
+      text-shadow: 0 0 12px rgba(0,240,255,0.5);
+    }
+
+    .lead {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.95rem 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--cyan);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--cyan), #7af6ff);
+      color: #040b14;
+      box-shadow: 0 0 20px rgba(0,240,255,0.25);
+    }
+
+    .btn-secondary {
+      color: var(--cyan);
+      background: rgba(0,240,255,0.04);
+    }
+
+    .btn:hover,
+    .btn:focus {
+      transform: translateY(-2px);
+    }
+
+    .mini-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .mini-stat {
+      min-width: 120px;
+    }
+
+    .mini-stat strong {
+      display: block;
+      font-size: 1.8rem;
+      color: var(--text);
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .mini-stat span {
+      color: var(--muted);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08rem;
+    }
+
+    .terminal-panel {
+      position: relative;
+      border: 1px solid var(--cyan);
+      background: rgba(8, 16, 23, 0.85);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid var(--line);
+      background: rgba(17, 24, 39, 0.8);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dot.red { background: #ff6767; }
+    .dot.yellow { background: #f7d067; }
+    .dot.green { background: #52d88a; }
+
+    .terminal-body {
+      padding: 1.5rem 1.3rem 1.2rem;
+      font-family: 'Consolas', 'Courier New', monospace;
+    }
+
+    .command {
+      color: var(--green);
+      margin-bottom: 0.9rem;
+      font-size: 0.9rem;
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    .status-card {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem;
+    }
+
+    .status-card .label {
+      display: block;
+      color: var(--muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .status-card strong {
+      color: var(--text);
+      font-size: 1.1rem;
+    }
+
+    .status-card .count {
+      color: var(--cyan);
+    }
+
+    section {
+      padding: 5.2rem 0;
+      position: relative;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-label {
+      color: var(--cyan);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      margin-bottom: 0.8rem;
+      display: inline-block;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.05em;
+      line-height: 1.05;
+    }
+
+    .section-note {
+      color: var(--muted);
+      max-width: 480px;
+    }
+
+    .about-grid,
+    .expertise-grid,
+    .project-grid,
+    .timeline {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .about-grid {
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+
+    .card {
+      background: rgba(12, 20, 30, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 1.5rem;
+      box-shadow: 0 16px 50px rgba(0,0,0,0.15);
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .chip {
+      padding: 0.5rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(0,240,255,0.08);
+      border: 1px solid rgba(0,240,255,0.25);
+      color: var(--cyan);
+      font-size: 0.76rem;
+      letter-spacing: 0.08rem;
+      text-transform: uppercase;
+    }
+
+    .metrics-box {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 1rem;
+    }
+
+    .metric {
+      background: rgba(11, 20, 32, 0.9);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1.1rem;
+      text-align: center;
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--cyan);
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08rem;
+    }
+
+    .expertise-grid {
+      grid-template-columns: repeat(4, minmax(0,1fr));
+    }
+
+    .service-card h3 {
+      color: var(--text);
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+    }
+
+    .service-card .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(0,240,255,0.08);
+      color: var(--cyan);
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--line);
+    }
+
+    .service-card ul {
+      list-style: none;
+      color: var(--muted);
+      display: grid;
+      gap: 0.55rem;
+      font-size: 0.96rem;
+    }
+
+    .service-card li::before {
+      content: "▹";
+      color: var(--cyan);
+      margin-right: 0.5rem;
+    }
+
+    .project-grid {
+      grid-template-columns: repeat(3, minmax(0,1fr));
+    }
+
+    .project-card {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .project-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      color: var(--cyan);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.08rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.35rem;
+      line-height: 1.25;
+    }
+
+    .project-card p {
+      color: var(--muted);
+    }
+
+    .project-card .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: auto;
+    }
+
+    .project-card .tags span {
+      background: rgba(124,58,237,0.1);
+      border: 1px solid rgba(124,58,237,0.3);
+      color: #d6c5ff;
+      padding: 0.35rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      letter-spacing: 0.05rem;
+      text-transform: uppercase;
+    }
+
+    .timeline {
+      grid-template-columns: repeat(3, minmax(0,1fr));
+    }
+
+    .timeline-card {
+      position: relative;
+      padding-top: 1.3rem;
+    }
+
+    .timeline-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--cyan), rgba(124,58,237,0.75), transparent);
+    }
+
+    .timeline-card .year {
+      color: var(--cyan);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12rem;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .timeline-card h3 {
+      margin-bottom: 0.8rem;
+      font-size: 1.35rem;
+    }
+
+    .timeline-card p {
+      color: var(--muted);
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .contact-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 1.2rem;
+    }
+
+    .contact-links a {
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(13, 21, 34, 0.9);
+      padding: 0.9rem 1rem;
+      display: block;
+      transition: 0.2s ease;
+    }
+
+    .contact-links a:hover,
+    .contact-links a:focus {
+      border-color: rgba(0,240,255,0.5);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: rgba(11, 20, 35, 0.8);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 0.95rem 1rem;
+      font: inherit;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: #88a8bf;
+    }
+
+    .contact-form textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    footer {
+      padding: 2rem 0 3rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-grid,
+      .contact-wrap,
+      .expertise-grid,
+      .project-grid,
+      .timeline {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .contact-wrap {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        justify-content: center;
+        padding: 1rem 0;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.8rem 1.2rem;
+      }
+
+      .expertise-grid,
+      .project-grid,
+      .timeline,
+      .metrics-box {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-note {
+        margin-top: 0.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#home" class="brand">Surya S</a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#expertise">Expertise</a></li>
+          <li><a href="#projects">Learning</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="nav-cta" href="#contact">Hire Me</a>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">System Booting // Cybersecurity Student & Fast Learner</div>
+          <h1>Building my path in <span class="highlight">cybersecurity</span>.</h1>
+          <p class="lead">
+            Motivated cybersecurity student with a strong drive to learn, adapt, and build practical skills in digital defense. Fast learner with a solid grasp of network security, system administration, and vulnerability assessment fundamentals.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Connect With Me</a>
+            <a class="btn btn-secondary" href="#projects">My Learning Journey</a>
+          </div>
+
+          <div class="mini-stats">
+            <div class="mini-stat">
+              <strong>1st</strong>
+              <span>Year College</span>
+            </div>
+            <div class="mini-stat">
+              <strong>100%</strong>
+              <span>Curiosity</span>
+            </div>
+            <div class="mini-stat">
+              <strong>24/7</strong>
+              <span>Learning</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="terminal-panel" aria-label="Security dashboard preview">
+          <div class="terminal-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="terminal-body">
+            <div class="command">$ cyber-monitor --status</div>
+            <div class="command">Network Defense: ENABLED</div>
+            <div class="command">Threat Intel: SYNCHRONIZED</div>
+            <div class="status-grid">
+              <div class="status-card">
+                <span class="label">Vuln Scan</span>
+                <strong class="count">24h</strong>
+              </div>
+              <div class="status-card">
+                <span class="label">Incidents</span>
+                <strong>03</strong>
+              </div>
+              <div class="status-card">
+                <span class="label">Risk Score</span>
+                <strong>Low</strong>
+              </div>
+              <div class="status-card">
+                <span class="label">Systems</span>
+                <strong>146</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-label">01 // About</span>
+            <h2>Security-first mindset. Action-driven execution.</h2>
+          </div>
+          <p class="section-note">I blend technical depth with practical defense strategies to protect systems, data, and business continuity.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="card">
+            <p>
+              I’m Surya S, a cybersecurity student currently studying at Gojan School of Business and Technology. I’m focused on developing practical knowledge in network security, system administration, and digital defense while improving my technical problem-solving abilities.
+            </p>
+            <p>
+              I enjoy learning quickly, working through technical challenges, and applying new concepts to real-world security scenarios. Eager to continue developing my skills and contribute to building safer digital systems.
+            </p>
+            <div class="chip-row">
+              <span class="chip">Networking</span>
+              <span class="chip">Linux</span>
+              <span class="chip">Python</span>
+              <span class="chip">Security Basics</span>
+            </div>
+          </div>
+
+          <div class="metrics-box">
+            <div class="metric">
+              <strong>1st</strong>
+              <span>Year</span>
+            </div>
+            <div class="metric">
+              <strong>Fast</strong>
+              <span>Learner</span>
+            </div>
+            <div class="metric">
+              <strong>24/7</strong>
+              <span>Studying</span>
+            </div>
+            <div class="metric">
+              <strong>100%</strong>
+              <span>Growth</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="expertise">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-label">02 // Expertise</span>
+            <h2>Core capabilities built for modern security teams.</h2>
+          </div>
+        </div>
+
+        <div class="expertise-grid">
+          <article class="card service-card">
+            <div class="icon">◈</div>
+            <h3>Networking</h3>
+            <ul>
+              <li>TCP/IP fundamentals</li>
+              <li>Ports & protocols</li>
+              <li>Basic troubleshooting</li>
+            </ul>
+          </article>
+
+          <article class="card service-card">
+            <div class="icon">◎</div>
+            <h3>Linux & Systems</h3>
+            <ul>
+              <li>Command line practice</li>
+              <li>Permissions & processes</li>
+              <li>System basics</li>
+            </ul>
+          </article>
+
+          <article class="card service-card">
+            <div class="icon">▣</div>
+            <h3>Python</h3>
+            <ul>
+              <li>Scripting fundamentals</li>
+              <li>Automation basics</li>
+              <li>Practical problem solving</li>
+            </ul>
+          </article>
+
+          <article class="card service-card">
+            <div class="icon">✦</div>
+            <h3>Security Foundations</h3>
+            <ul>
+              <li>Threat awareness</li>
+              <li>Risk thinking</li>
+              <li>Continuous learning</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-label">03 // Learning Path</span>
+            <h2>My current focus as a first-year cybersecurity learner.</h2>
+          </div>
+        </div>
+
+        <div class="project-grid">
+          <article class="card project-card">
+            <div class="project-top">
+              <span>In Progress</span>
+              <span>2026</span>
+            </div>
+            <h3>Home Lab Setup</h3>
+            <p>Setting up a personal lab to practice networking, system access, and security fundamentals in a safe environment.</p>
+            <div class="tags">
+              <span>Lab</span>
+              <span>Virtualization</span>
+              <span>Practice</span>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-top">
+              <span>Learning</span>
+              <span>2026</span>
+            </div>
+            <h3>Linux & Bash Basics</h3>
+            <p>Learning command-line workflows, file permissions, process management, and introductory system administration.</p>
+            <div class="tags">
+              <span>Linux</span>
+              <span>Bash</span>
+              <span>Commands</span>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-top">
+              <span>Practice</span>
+              <span>2026</span>
+            </div>
+            <h3>Cybersecurity Fundamentals</h3>
+            <p>Studying security concepts such as threat types, defense layers, operational security, and risk awareness.</p>
+            <div class="tags">
+              <span>Security</span>
+              <span>Study</span>
+              <span>Concepts</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-label">04 // Journey</span>
+            <h2>Experience across defense, resilience, and risk reduction.</h2>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <article class="card timeline-card">
+            <div class="year">2026 — Present</div>
+            <h3>Cybersecurity Student</h3>
+            <p>Building a strong foundation in networking, Linux, security concepts, and hands-on learning through study and practical exploration.</p>
+          </article>
+
+          <article class="card timeline-card">
+            <div class="year">2025 — 2026</div>
+            <h3>Academic Foundation</h3>
+            <p>Started college and began learning core concepts in computing, systems, and the fundamentals of digital security.</p>
+          </article>
+
+          <article class="card timeline-card">
+            <div class="year">Early Stage</div>
+            <h3>Skills in Progress</h3>
+            <p>Focused on developing technical confidence through labs, tutorials, and hands-on practice in a beginner-friendly learning path.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-label">05 // Contact</span>
+            <h2>Let’s secure the next move.</h2>
+          </div>
+        </div>
+
+        <div class="contact-wrap">
+          <div class="card contact-card">
+            <p>I’m open to learning opportunities, internships, mentorship, and collaborations where I can continue building my cybersecurity skills and contribute to secure digital systems.</p>
+            <div class="contact-links">
+              <a href="mailto:suryasudarshan150@gmail.com">suryasudarshan150@gmail.com</a>
+              <a href="https://www.linkedin.com/in/surya-sudarshan" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <form class="contact-form">
+              <input type="text" placeholder="Your Name" aria-label="Your Name" required />
+              <input type="email" placeholder="Your Email" aria-label="Your Email" required />
+              <textarea placeholder="Project details or security requirements" aria-label="Project details" required></textarea>
+              <button class="btn btn-primary" type="submit">Send Request</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Surya S. Learning cybersecurity one step at a time.
+  </footer>
+</body>
+</html>
